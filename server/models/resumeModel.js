@@ -3,33 +3,47 @@ const mongoose = require('mongoose')
 
 
 const resumeSchema = new mongoose.Schema({
+    userID :{
+        type: String,
+        required : [true]
+    },
+    personalDetails : [{
+        firstName:{
+            type: String,
+            required : [true]
+        },
+        lastName:{
+            type:String,
+            required: [true]
+        },
+        email: {
+            type : String,
+            required : [true]
+        },
+        phoneNo : {
+            type : Number,
+            required : [true]
+        },
+        linkedIn : {
+            type : String,
+        },
+        professionalSummary : {
+            type : String,
+            required : [true]
+        }
+    }],
+    resumeName : {
+        type:String,
+        required : [true]
+    },
     resumeID :{
         type: String,
         required : [true]
     },
-    firstName:{
-        type: String,
-        required : [true]
-    },
-    lastName:{
-        type:String,
-        required: [true]
-    },
-    email: {
+    
+    skills :[{
         type : String,
-        required : [true]
-    },
-    phoneNo : {
-        type : Number,
-        required : [true]
-    },
-    linkedIn : {
-        type : String,
-    },
-    professionalSummary : {
-        type : String,
-        required : [true]
-    },
+    }],
     occupationalDetails: [{
         id : {
             type : String,

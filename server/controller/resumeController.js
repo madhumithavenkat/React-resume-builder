@@ -9,14 +9,15 @@ catchAsync = fn =>{
 }
 
 exports.createResume = catchAsync(async (req,res,next) =>{
+        console.log(req.body)
         let newEntry = req.body.resume
         delete newEntry.step
         newEntry['resumeID'] = nanoid()
+        newEntry['userID'] = req.body.id
         
         console.log(newEntry)
-        const newResume = await Resume.create(req.body.resume)
-        console.log(newResume)
-
+        const newResume = await Resume.create(newEntry)
+       console.log(newResume)
         res.json({
             status: 'success',
             data: {
@@ -29,13 +30,29 @@ exports.createResume = catchAsync(async (req,res,next) =>{
 
 exports.getResumes = catchAsync(async (req,res,next) => {
 
-    const allResumes = await Resume.find()
-    console.log(allResumes)
+    let id = req.query.id
+    
+    const allResumes = await Resume.find({'userID' : id})
+    
 
     res.json({
         status : 'success',
         data : {
             rec : allResumes
+        }
+    })
+})
+
+exports.deleteResume = catchAsync(async(req,res,next) => {
+
+    console.log("deleteResume")
+    
+    const deleteResume= await Resume.deleteOne({'resumeID' : req.body.id})
+
+    res.json({
+        status : 'success',
+        data : {
+            rec:deleteResume
         }
     })
 })

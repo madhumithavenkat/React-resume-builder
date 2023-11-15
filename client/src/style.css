@@ -46,7 +46,8 @@
 
 .sidebar {
     width: 20%;
-    height: 100vh;
+    /* height: 100vh; */
+    border-right: lightgray solid 2px;
 }
 
 .sidebar--note {
@@ -190,12 +191,13 @@
   }
 
   .page {
-    width: 21cm;
+    width: 100%;
     min-height: 29.7cm;
-    margin: 0 auto;
+    
     display: flex;
     color: rgba(0, 0, 0, 0.8);
     background-color: #fff;
+    letter-spacing: 0.01px;
   }
   
   .column {
@@ -203,7 +205,7 @@
   }
   
   .column.left {
-    flex-basis: 30%;
+    flex-basis: 23%;
     border-right: 1px solid #ccc;
   }
   
@@ -217,7 +219,7 @@
     left: 0;
     z-index: -1;
     content: '';
-    height: 1px;
+   
     width: 100vw;
     background-color: #000;
   }
@@ -235,9 +237,9 @@
     }
   }
 
-  section:not(:last-child) {
+  /* section:not(:last-child) {
     margin-bottom: 23px;
-  }
+  } */
   
   h2,
   h3,
@@ -342,6 +344,19 @@
      display : flex;
   }
 
+  .pdf{
+    display :flex;
+    flex-direction: column;
+    justify-items: center;
+   
+  }
+
+  .enclosing-pdf { 
+    display : flex;
+    flex-direction: column;
+    min-height: 30cm;
+    width : 100%;
+  }
  
   
 
