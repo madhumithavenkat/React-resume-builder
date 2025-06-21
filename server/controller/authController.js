@@ -1,6 +1,6 @@
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
-const appError = require('../utils/apperror')
+const appError = require('../utils/appError')
 const util = require('util')
 
 
