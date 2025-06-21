@@ -1,5 +1,5 @@
 const Resume = require('../models/resumeModel')
-const appError = require('../utils/appError')
+
 var {nanoid} = require('nanoid')
 
 catchAsync = fn =>{
