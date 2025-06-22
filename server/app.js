@@ -16,7 +16,7 @@ var cors = require('cors');
 
 app.use(credentials);
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(bodyparser.json());
 
