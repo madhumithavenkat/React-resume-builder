@@ -18,7 +18,7 @@ app.set('trust proxy', 1)
 app.use(credentialss);
 
 const corsOptions = {
-    origin: 'https://resume-builder-client-76md29ol1.vercel.appß',
+    origin: 'resume-builder-client-madhumitha-venkatramans-projects.vercel.app',
     credentials: true,
     methods: ['GET','HEAD','PUT','PATCH','POST','DELETE','OPTIONS'],
     allowedHeaders: ['Content-Type','Authorization'], // no need for 'Set-Cookie' here
