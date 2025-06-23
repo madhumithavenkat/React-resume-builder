@@ -9,12 +9,12 @@ const user = require('./routes/user')
 const refresh = require('./routes/refresh')
 const globalErrorHandler = require('./controller/errorController')
 const corsOptions = require('./config/corsOptions')
-//const credentialss= require('./middleware/credentials')
+const credentialss= require('./middleware/credentials')
 var cookieParser = require('cookie-parser')
 
 var cors = require('cors');
 
-app.use(credentials);
+app.use(credentialss);
 
 app.use(cors({
     origin: 'https://resume-builder-client-recid2wlt.vercel.app',
