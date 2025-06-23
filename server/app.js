@@ -16,7 +16,11 @@ var cors = require('cors');
 
 app.use(credentials);
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://resume-builder-client-recid2wlt.vercel.app',
+    methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+    allowedHeaders: ['Content-Type','Authorization']
+  }));
 
 app.use(bodyparser.json());
 
@@ -25,17 +29,17 @@ app.use(cookieParser())
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'https://resume-builder-client-recid2wlt.vercel.app');
+    //res.setHeader('Access-Control-Allow-Origin', '*');
 
     // // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE,OPTIONS');
+    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE,OPTIONS');
 
     // // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept");
+    // res.setHeader('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept");
 
     // // Set to true if you need the website to include cookies in the requests sent
     // // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
+    //res.setHeader('Access-Control-Allow-Credentials', true);
 
     // Pass to next layer of middleware
     next();
