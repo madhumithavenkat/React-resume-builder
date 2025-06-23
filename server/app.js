@@ -9,25 +9,18 @@ const user = require('./routes/user')
 const refresh = require('./routes/refresh')
 const globalErrorHandler = require('./controller/errorController')
 const corsOptions = require('./config/corsOptions')
-const credentialss= require('./middleware/credentials')
+const credentials= require('./middleware/credentials')
 var cookieParser = require('cookie-parser')
 
 var cors = require('cors');
 
-app.set('trust proxy', 1)
-app.use(credentialss);
+app.use(credentials);
 
-const corsOptions = {
-    origin: 'resume-builder-client-madhumitha-venkatramans-projects.vercel.app',
-    credentials: true,
-    methods: ['GET','HEAD','PUT','PATCH','POST','DELETE','OPTIONS'],
-    allowedHeaders: ['Content-Type','Authorization'], // no need for 'Set-Cookie' here
-    preflightContinue: false,         // let cors() send the response
-    optionsSuccessStatus: 200         // return 200 instead of 204
-  };
-
-  app.use(cors(corsOptions));
-  app.options('*', cors(corsOptions));
+app.use(cors({
+    origin: 'https://resume-builder-client-seven.vercel.app',
+    methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+    allowedHeaders: ['Content-Type','Authorization']
+}));
 
 app.use(bodyparser.json());
 
