@@ -14,22 +14,21 @@ var cookieParser = require('cookie-parser')
 
 var cors = require('cors');
 
+app.set('trust proxy', 1)
 app.use(credentialss);
 
 app.use(cors({
     origin: 'https://resume-builder-client-recid2wlt.vercel.app',
     methods: ['GET','POST','PUT','DELETE','OPTIONS'],
     credentials: true, // Access-Control-Allow-Credentials:true
-    allowedHeaders: ['Content-Type','Authorization','Set-Cookie',
-    
-    ]
+    allowedHeaders: ['Content-Type','Authorization','Set-Cookie']
   }));
 
 app.use(bodyparser.json());
 
 app.use(cookieParser())
 
-app.set('trust proxy', 1)
+
 
 app.use(function (req, res, next) {
 
