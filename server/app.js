@@ -17,12 +17,17 @@ var cors = require('cors');
 app.set('trust proxy', 1)
 app.use(credentialss);
 
-app.use(cors({
-    origin: 'https://resume-builder-client-seven.vercel.app/',
-    methods: ['GET','POST','PUT','DELETE','OPTIONS'],
-    credentials: true, // Access-Control-Allow-Credentials:true
-    allowedHeaders: ['Content-Type','Authorization','Set-Cookie']
-  }));
+const corsOptions = {
+    origin: 'https://resume-builder-client-seven.vercel.app',
+    credentials: true,
+    methods: ['GET','HEAD','PUT','PATCH','POST','DELETE','OPTIONS'],
+    allowedHeaders: ['Content-Type','Authorization'], // no need for 'Set-Cookie' here
+    preflightContinue: false,         // let cors() send the response
+    optionsSuccessStatus: 200         // return 200 instead of 204
+  };
+
+  app.use(cors(corsOptions));
+  app.options('*', cors(corsOptions));
 
 app.use(bodyparser.json());
 
