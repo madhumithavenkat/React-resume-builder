@@ -26,6 +26,8 @@ app.use(bodyparser.json());
 
 app.use(cookieParser())
 
+app.set('trust proxy', 1)
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
