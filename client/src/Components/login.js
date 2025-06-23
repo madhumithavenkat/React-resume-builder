@@ -69,7 +69,7 @@ export default function Login(props) {
                 headers : {'Content-Type' : 'application/json'},
                 withCredentials : true
             })
-        
+        console.log(response)
         const accessToken = response?.data?.data?.rec?.accessToken
         const id = response?.data?.data?.rec?._id
        
