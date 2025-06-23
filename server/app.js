@@ -9,7 +9,7 @@ const user = require('./routes/user')
 const refresh = require('./routes/refresh')
 const globalErrorHandler = require('./controller/errorController')
 const corsOptions = require('./config/corsOptions')
-const credentials = require('./middleware/credentials')
+//const credentialss= require('./middleware/credentials')
 var cookieParser = require('cookie-parser')
 
 var cors = require('cors');
@@ -19,7 +19,10 @@ app.use(credentials);
 app.use(cors({
     origin: 'https://resume-builder-client-recid2wlt.vercel.app',
     methods: ['GET','POST','PUT','DELETE','OPTIONS'],
-    allowedHeaders: ['Content-Type','Authorization']
+    credentials: true, // Access-Control-Allow-Credentials:true
+    allowedHeaders: ['Content-Type','Authorization','Set-Cookie',
+    
+    ]
   }));
 
 app.use(bodyparser.json());
