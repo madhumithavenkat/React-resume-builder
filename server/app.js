@@ -16,11 +16,14 @@ var cors = require('cors');
 
 app.use(credentials);
 
-app.use(cors({
-    origin: 'https://resume-builder-client-seven.vercel.app',
-    methods: ['GET','POST','PUT','DELETE','OPTIONS'],
-    allowedHeaders: ['Content-Type','Authorization']
-}));
+// app.use(cors({
+//     origin: 'https://resume-builder-client-seven.vercel.app',
+//     // origin: '*',
+//     methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+//     allowedHeaders: ['Content-Type','Authorization']
+// }));
+
+app.use(cors());
 
 app.use(bodyparser.json());
 
@@ -29,6 +32,7 @@ app.use(cookieParser())
 
 
 app.use(function (req, res, next) {
+    console.log("Request: ", req);
 
     // Website you wish to allow to connect
     //res.setHeader('Access-Control-Allow-Origin', '*');

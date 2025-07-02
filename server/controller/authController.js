@@ -23,6 +23,9 @@ catchAsync = fn =>{
 exports.signUp = catchAsync(async (req,res,next) =>{
     
         const { email, password } = req.body;
+        console.log("signUp",req.body)
+        console.log("email",email)
+        console.log("password",password)
         if (!email || !password) return res.status(400).json({ 'message': 'Username and password are required.' });
         // check for duplicate usernames in the db
         //const duplicate = await User.find(person => person.email === email);

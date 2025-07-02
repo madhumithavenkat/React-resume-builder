@@ -9,10 +9,10 @@ mongoose.connect('mongodb+srv://maddyvenkat04:l7CFxg0Wjf0GeFXw@maddy-projects.ua
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
-  console.log("connectio open");
+  console.log("connection open");
 });
 
 
-app.listen(3000, function () {
-  console.log('App listening on port 3000!');
+app.listen(8010, function () {
+  console.log('App listening on port 8010!');
 });
