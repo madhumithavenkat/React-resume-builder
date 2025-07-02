@@ -23,4 +23,5 @@
     "rewrites": [
         { "source": "/favicon.ico", "destination": "/public/favicon.ico" }
     ]
+    
 }
