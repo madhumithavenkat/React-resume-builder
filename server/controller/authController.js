@@ -34,9 +34,12 @@ exports.signUp = catchAsync(async (req,res,next) =>{
             email : email
         };
         const refreshToken = getToken(user,'1d')
+        console.log("refreshToken",refreshToken)
         const newUser = await User.create({email,password,refreshToken})
+        console.log("user",newUser)
         
         const hours = process.env.EXPIRESIN.split('')[0]
+        console.log("hours",hours)
         const returnData = {
             email : newUser.email,
             _id : newUser._id,
