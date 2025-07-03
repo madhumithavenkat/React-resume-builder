@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "server.js",
+            "dest": "app.js",
             "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
             "headers": {
                 "Access-Control-Allow-Origin": "https://resume-builder-client-seven.vercel.app",
@@ -20,8 +20,6 @@
            
         }
     ],
-    "rewrites": [
-        { "source": "/favicon.ico", "destination": "/public/favicon.ico" }
-    ]
-    
+    "rewrites": [{ "source": "/(.*)", "destination": "app.js" }]
+
 }
