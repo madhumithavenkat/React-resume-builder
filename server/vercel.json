@@ -10,15 +10,25 @@
     
         "headers": [
           {
-            "source": "/(.*)",
+            "source": "/routes/(.*)",
             "headers": [
               { "key": "Access-Control-Allow-Origin", "value": "https://resume-builder-client-seven.vercel.app" },
               { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT,DELETE, OPTIONS" },
               { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" },
               { "key": "Access-Control-Allow-Credentials", "value": "true" }
             ]
-          }
+          },
+          {
+            "source": "/controller/(.*)",
+            "headers": [
+              { "key": "Access-Control-Allow-Origin", "value": "https://resume-builder-client-seven.vercel.app" },
+              { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT,DELETE, OPTIONS" },
+              { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" },
+              { "key": "Access-Control-Allow-Credentials", "value": "true" }
+            
+
         ]
-    
+    }
+]
 
 }
